@@ -11,21 +11,29 @@ function initialisePage() {
     const timetableEl = $("#timetable");
 
     for (var i = 10; i < 21; i++) {
-        timetableEl.append(createRow(i, "", currentHour));
+        if (currentHour - i > 0) {
+            timetableEl.append(createRow(i, "", currentHour).addClass("past"));
+        } else if (currentHour - i == 0) {
+            timetableEl.append(createRow(i, "", currentHour).addClass("present")); 
+        } else {
+            timetableEl.append(createRow(i, "", currentHour).addClass("future"));
+        }
     }
 }
 
-// conditional formatting (past, present)
-// localStorage
 
 function createRow(rowHour, savedText) {
+    
     var newRow = $("<div>").addClass("row");
+    var hourCol = $("<div>").addClass("col-sm-1 hour").text(formatHourNumber(rowHour));
+    var textCol = $("<textarea>").addClass("col-sm-10").text(savedText);
+    var btnCol = $("<button>").addClass("col-sm-1 saveBtn");
 
-    var hourCol = $("<div>").addClass("col hour").text(formatHourNumber(rowHour));
-    var textCol = $("<textarea>").addClass("col").text(savedText);
-    var btnCol = $("<button>").addClass("col saveBtn").text("Save");
+    var saveIcon = $("<i>").addClass("fas fa-save");
+
 
     newRow.append(hourCol, textCol, btnCol);
+    btnCol.append(saveIcon);
 
     return newRow;
 }
@@ -47,5 +55,6 @@ function formatHourNumber(hourNumber) {
 
     return hourString;
 }
+
 
 initialisePage();
