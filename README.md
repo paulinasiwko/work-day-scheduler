@@ -19,9 +19,9 @@ Simply navigate to the application and interact with the intuitive user interfac
 
 After opening the code in the browser the resulting analysis looks as following:
 
-![A screenshot of the deployed application](./assets/img/)
+![A screenshot of the deployed application](./assets/img/screenshot.PNG)
 
-The [URL](https://paulinasiwko.github.io/XXX) of deployed application.
+The [URL](https://paulinasiwko.github.io/work-day-scheduler/) of deployed application.
 
 ## Technologies Used
 
