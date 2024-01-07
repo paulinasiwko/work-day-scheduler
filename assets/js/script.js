@@ -1,19 +1,19 @@
+const currentHour = dayjs().format("HH");
+
 function setCurrentDay() {
     const today = dayjs();
     $("#currentDay").text(today.format("dddd, MMMM DD"));      
 }
 
-const currentHour = dayjs().format("HH");
-
 function initialisePage() {
     setCurrentDay();
 
     const timetableEl = $("#timetable");
-    const userInput = JSON.parse(localStorage.getItem("hourText")) || [];
+    const userInput = getLocalStorageInfo();
 
-    for (var i = 9; i < 21; i++) {
-        var rowObject = userInput.find((element) => element.hour === i);
-        var text = "";
+    for (let i = 9; i < 21; i++) {
+        const rowObject = userInput.find((element) => element.hour === i);
+        let text = "";
         if (rowObject != null || rowObject != undefined) {
             text = rowObject.text;
         }
@@ -31,19 +31,19 @@ function initialisePage() {
 
 function createRow(rowHour, savedText) {
     
-    var newRow = $("<div>").addClass("row");
-    var hourCol = $("<div>").addClass("col-sm-1 hour").text(formatHourNumber(rowHour));
-    var textCol = $("<textarea>").addClass("col-sm-10").text(savedText);
-    var btnCol = $("<button>").addClass("col-sm-1 saveBtn");
+    const newRow = $("<div>").addClass("row");
+    const hourCol = $("<div>").addClass("col-sm-1 hour").text(formatHourNumber(rowHour));
+    const textCol = $("<textarea>").addClass("col-sm-10").text(savedText);
+    const btnCol = $("<button>").addClass("col-sm-1 saveBtn");
 
-    var saveIcon = $("<i>").addClass("fas fa-save");
+    const saveIcon = $("<i>").addClass("fas fa-save");
 
     btnCol.on("click", function(e) {
         e.preventDefault();
 
-        const hourText = JSON.parse(localStorage.getItem("hourText")) || [];
+        const hourText = getLocalStorageInfo();
 
-        var a = hourText.find((element) => element.hour === rowHour);
+        const a = hourText.find((element) => element.hour === rowHour);
 
         if (a != undefined) {
             a.text = textCol.val();
@@ -65,7 +65,7 @@ function createRow(rowHour, savedText) {
 
 
 function formatHourNumber(hourNumber) {
-    var hourString = "";
+    let hourString = "";
 
     if (hourNumber > 12) {
         hourNumber -= 12;
@@ -81,5 +81,8 @@ function formatHourNumber(hourNumber) {
     return hourString;
 }
 
+function getLocalStorageInfo() {
+    return JSON.parse(localStorage.getItem("hourText")) || [];
+}
 
 initialisePage();
