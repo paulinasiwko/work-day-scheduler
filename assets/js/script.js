@@ -33,20 +33,21 @@ function createRow(rowHour, savedText) {
     
     const newRow = $("<div>").addClass("row");
     const hourCol = $("<div>").addClass("col-sm-1 hour").text(formatHourNumber(rowHour));
-    const textCol = $("<textarea>").addClass("col-sm-10").text(savedText);
+    const textCol = $("<textarea>").addClass("col-sm-9").text(savedText);
     const btnCol = $("<button>").addClass("col-sm-1 saveBtn");
+    const deleteCol = $("<button>").addClass("col-sm-1 deleteBtn");
 
     const saveIcon = $("<i>").addClass("fas fa-save");
+    const deleteIcon = $("<i>").addClass("fas fa-trash");
 
     btnCol.on("click", function(e) {
         e.preventDefault();
 
         const hourText = getLocalStorageInfo();
+        const rowElement = hourText.find((element) => element.hour === rowHour);
 
-        const a = hourText.find((element) => element.hour === rowHour);
-
-        if (a != undefined) {
-            a.text = textCol.val();
+        if (rowElement != undefined) {
+            rowElement.text = textCol.val();
         } else {
             hourText.push({
                 hour: rowHour,
@@ -55,10 +56,25 @@ function createRow(rowHour, savedText) {
         }
 
         localStorage.setItem("hourText", JSON.stringify(hourText));
+    });
+
+    deleteCol.on("click", function(e) {
+        e.preventDefault();
+
+        const savedData = getLocalStorageInfo();
+        const rowToDelete = savedData.find((element) => element.hour === rowHour);
+
+        if (rowToDelete != undefined) {
+            rowToDelete.text = "";
+            localStorage.setItem("hourText", JSON.stringify(savedData));
+            location.reload();
+        } 
+
     })
 
-    newRow.append(hourCol, textCol, btnCol);
+    newRow.append(hourCol, textCol, btnCol, deleteCol);
     btnCol.append(saveIcon);
+    deleteCol.append(deleteIcon);
 
     return newRow;
 }
