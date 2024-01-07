@@ -11,7 +11,7 @@ function initialisePage() {
     const timetableEl = $("#timetable");
     const userInput = getLocalStorageInfo();
 
-    for (let i = 9; i < 21; i++) {
+    for (let i = 9; i <= 17; i++) {
         const rowObject = userInput.find((element) => element.hour === i);
         let text = "";
         if (rowObject != null || rowObject != undefined) {
