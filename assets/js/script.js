@@ -35,7 +35,7 @@ function createRow(rowHour, savedText) {
     const hourCol = $("<div>").addClass("col-sm-1 hour").text(formatHourNumber(rowHour));
     const textCol = $("<textarea>").addClass("col-sm-9").text(savedText);
     const btnCol = $("<button>").addClass("col-sm-1 saveBtn");
-    const deleteCol = $("<button>").addClass("col-sm-1 deleteBtn");
+    const deleteCol = $("<button>").addClass("col-sm-1 saveBtn");
 
     const saveIcon = $("<i>").addClass("fas fa-save");
     const deleteIcon = $("<i>").addClass("fas fa-trash");

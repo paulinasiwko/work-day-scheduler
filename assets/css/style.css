@@ -82,15 +82,3 @@ header {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
-
-.deleteBtn {
-  background-color: var(--light-blue);
-  color: var(--white);
-  border-bottom: 2px solid var(--dark-blue);
-  border-top: 2px solid var(--dark-blue);
-  border-right: 2px solid var(--dark-blue);
-}
-
-.deleteBtn:hover {
-  background-color: var(--dark-blue);
-}
