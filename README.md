@@ -5,9 +5,6 @@ This project aims to create a Daily Planner App, showcasing skills in DOM manipu
 
 The app runs in the browser and features dynamically updated HTML and CSS powered by jQuery.
 
-## Installation
-N/A
-
 ## Features
 - Each row in the display corresponds to a different time block, dynamically updated using jQuery.
 - The JavaScript function responsible for creating rows compares each time block's hour to the current hour and applies the appropriate CSS class. This visual representation allows users to easily identify the current, past, and future hours.
@@ -25,14 +22,8 @@ The [URL](https://paulinasiwko.github.io/work-day-scheduler/) of deployed applic
 
 ## Technologies Used
 
+- ![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
+- ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) 
+- ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+- ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 - Day.js
-- jQuery
-- JavaScript
-- HTML
-- CSS
-
-## Credits
-N/A
-
-## Licence 
-N/A
