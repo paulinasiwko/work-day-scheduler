@@ -1,5 +1,7 @@
 # work-day-scheduler
 
+![GitHub top language](https://img.shields.io/github/languages/top/paulinasiwko/work-day-scheduler)
+
 ## Description
 This project aims to create a Daily Planner App, showcasing skills in DOM manipulation, advanced JavaScript, Day.js library, and integration of third-party APIs. The deployed webpage serves as a comprehensive overview of the work and provides an easy way for others to connect.
 
