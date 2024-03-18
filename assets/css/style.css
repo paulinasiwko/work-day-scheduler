@@ -82,3 +82,26 @@ header {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+
+@media (max-width: 768px) {
+  .row {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+  }
+
+  .hour {
+    width: 100%;
+    padding-bottom: 30px;
+  }
+
+  .saveBtn {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  textarea {
+    padding: 40px 0;
+  }
+}
